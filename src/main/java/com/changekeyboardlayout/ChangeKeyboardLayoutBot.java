@@ -42,11 +42,11 @@ public class ChangeKeyboardLayoutBot extends SpringWebhookBot {
             return handleUpdate(update);
         } catch (Exception e) {
             return new SendMessage(update.getMessage().getChatId().toString(),
-                    e.getMessage());
+                    "Something went wrong...");
         }
     }
 
-    private BotApiMethod<?> handleUpdate(Update update) throws IOException {
+    private BotApiMethod<?> handleUpdate(Update update) {
         if (update.hasCallbackQuery()) {
             CallbackQuery callbackQuery = update.getCallbackQuery();
             return callbackQueryHandler.processCallbackQuery(callbackQuery);
