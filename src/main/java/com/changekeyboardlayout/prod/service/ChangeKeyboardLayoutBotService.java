@@ -1,4 +1,4 @@
-package com.changekeyboardlayout;
+package com.changekeyboardlayout.prod.service;
 
 import com.changekeyboardlayout.prod.handler.CallbackQueryHandler;
 import com.changekeyboardlayout.prod.handler.MessageHandler;
@@ -6,6 +6,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
+import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updates.SetWebhook;
@@ -14,12 +15,11 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.starter.SpringWebhookBot;
 
-import java.io.IOException;
-
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ChangeKeyboardLayoutBot extends SpringWebhookBot {
+@Service
+public class ChangeKeyboardLayoutBotService extends SpringWebhookBot {
 
     private String botUsername;
     private String botToken;
@@ -28,9 +28,9 @@ public class ChangeKeyboardLayoutBot extends SpringWebhookBot {
     MessageHandler messageHandler;
     CallbackQueryHandler callbackQueryHandler;
 
-    public ChangeKeyboardLayoutBot(SetWebhook setWebhook,
-                                   MessageHandler messageHandler,
-                                   CallbackQueryHandler callbackQueryHandler) {
+    public ChangeKeyboardLayoutBotService(SetWebhook setWebhook,
+                                          MessageHandler messageHandler,
+                                          CallbackQueryHandler callbackQueryHandler) {
         super(setWebhook);
         this.messageHandler = messageHandler;
         this.callbackQueryHandler = callbackQueryHandler;

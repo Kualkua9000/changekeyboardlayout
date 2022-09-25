@@ -1,6 +1,6 @@
 package com.changekeyboardlayout.prod.config;
 
-import com.changekeyboardlayout.ChangeKeyboardLayoutBot;
+import com.changekeyboardlayout.prod.service.ChangeKeyboardLayoutBotService;
 import com.changekeyboardlayout.prod.handler.CallbackQueryHandler;
 import com.changekeyboardlayout.prod.handler.MessageHandler;
 import lombok.AllArgsConstructor;
@@ -20,10 +20,10 @@ public class SpringConfig {
     }
 
     @Bean
-    public ChangeKeyboardLayoutBot springWebhookBot(SetWebhook setWebhook,
-                                                    MessageHandler messageHandler,
-                                                    CallbackQueryHandler callbackQueryHandler) {
-        ChangeKeyboardLayoutBot bot = new ChangeKeyboardLayoutBot(setWebhook, messageHandler, callbackQueryHandler);
+    public ChangeKeyboardLayoutBotService springWebhookBot(SetWebhook setWebhook,
+                                                           MessageHandler messageHandler,
+                                                           CallbackQueryHandler callbackQueryHandler) {
+        ChangeKeyboardLayoutBotService bot = new ChangeKeyboardLayoutBotService(setWebhook, messageHandler, callbackQueryHandler);
 
         bot.setBotPath(telegramConfig.getBotWebhookPath());
         bot.setBotUsername(telegramConfig.getBotUsername());

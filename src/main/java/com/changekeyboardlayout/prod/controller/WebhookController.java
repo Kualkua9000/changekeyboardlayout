@@ -1,6 +1,6 @@
 package com.changekeyboardlayout.prod.controller;
 
-import com.changekeyboardlayout.ChangeKeyboardLayoutBot;
+import com.changekeyboardlayout.prod.service.ChangeKeyboardLayoutBotService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,10 +11,10 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 @RestController
 @AllArgsConstructor
 public class WebhookController {
-    private final ChangeKeyboardLayoutBot writeReadBot;
+    private final ChangeKeyboardLayoutBotService changeKeyboardLayoutBotService;
 
     @PostMapping("/")
     public BotApiMethod<?> onUpdateReceived(@RequestBody Update update) {
-        return writeReadBot.onWebhookUpdateReceived(update);
+        return changeKeyboardLayoutBotService.onWebhookUpdateReceived(update);
     }
 }
