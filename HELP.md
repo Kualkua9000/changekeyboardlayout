@@ -1,5 +1,5 @@
-Регистрируем Webhook в Telegram, в строке браузера запрос:
+Для локального запуска регистрируем Webhook в Telegram, в строке браузера запрос:
 
-https://api.telegram.org/bot5793194619:AAErSEAAdZ92yei5jSnz0txUnURiXa6--uI/setWebhook?url=https://changekeyboardlayout.herokuapp.com/
+https://api.telegram.org/bot<токен бота>/setWebhook?url=<URL, полученный от ngrok>
 
 {"ok":true,"result":true,"description":"Webhook was set"}
