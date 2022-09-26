@@ -36,7 +36,9 @@ public class MessageHandler {
     public String changeMessageLayout(String message) {
         String[] arr = message.split("");
         Map<String, String> dictionary = new LiteralDictionary().getDictionary();
-        for (int i = 0; i < arr.length; i++) arr[i] = dictionary.get(arr[i]);
+        for (int i = 0; i < arr.length; i++) {
+            if (dictionary.get(arr[i]) != null) arr[i] = dictionary.get(arr[i]);
+        }
         StringBuilder result = new StringBuilder();
         for(String val:arr) result.append(val);
         return result.toString();
